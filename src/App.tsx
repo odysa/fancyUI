@@ -15,10 +15,24 @@ function App() {
           Link Test
         </Button>
         <Button
+          btnType={ButtonType.Link}
+          disabled={true}
+          size={ButtonSize.Small}
+        >
+          Disabled Link
+        </Button>
+        <Button btnType={ButtonType.Primary} size={ButtonSize.Large}>
+          Large Button
+        </Button>
+        <Button btnType={ButtonType.Danger} size={ButtonSize.Large}>
+          Danger Button
+        </Button>
+        <Button
           btnType={ButtonType.Primary}
+          disabled={true}
           size={ButtonSize.Large}
         >
-          Large Button
+          Disabled Button
         </Button>
       </header>
     </div>
