@@ -1,5 +1,13 @@
+/*
+ * @Author: Chengxu Bian 
+ * @Date: 2020-07-06 22:45:08 
+ * @Last Modified by:   Chengxu Bian 
+ * @Last Modified time: 2020-07-06 22:45:08 
+ */
 import React from "react";
 import Button, { ButtonType, ButtonSize } from "./components/Button/button";
+import Menu from './components/Menu/menu';
+import MenuItem from './components/Menu/menuItem'
 function App() {
   return (
     <div className="App">
@@ -35,6 +43,11 @@ function App() {
           Disabled Button
         </Button>
       </header>
+      <body>
+        <Menu>
+          <MenuItem index={1}></MenuItem>
+        </Menu>
+      </body>
     </div>
   );
 }
