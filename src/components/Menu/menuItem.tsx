@@ -28,12 +28,12 @@ const MenuItem: React.FC<MenuItemProps> = (props) => {
 
   const handleClick = () => {
     if (context.onSelect && !disabled) {
-      context.onSelect(index);
+      context.onSelect(index);      
     }
   };
 
   return (
-    <li className={classes} style={style}>
+    <li className={classes} style={style} onClick={handleClick}>
       {children}
     </li>
   );

@@ -1,8 +1,8 @@
 /*
- * @Author: Chengxu Bian 
- * @Date: 2020-07-06 22:44:36 
- * @Last Modified by:   Chengxu Bian 
- * @Last Modified time: 2020-07-06 22:44:36 
+ * @Author: Chengxu Bian
+ * @Date: 2020-07-06 22:44:36
+ * @Last Modified by:   Chengxu Bian
+ * @Last Modified time: 2020-07-06 22:44:36
  */
 
 import React, { createContext, useState } from "react";
@@ -29,11 +29,12 @@ export const MenuContext = createContext<MenuContext>({ index: 0 });
 
 const Menu: React.FC<MenuProps> = (props) => {
   const { className, mode, style, onSelect, defaultIndex, children } = props;
-  const [currentIndex, setIndex ] = useState(defaultIndex);
+  const [currentIndex, setIndex] = useState(defaultIndex);
 
-  const classes = classNames("menu", className, {
+  const classes = classNames("fancy-menu", className, {
     "menu-vertical": mode === "vertical",
   });
+
   const handleClick = (index: number) => {
     setIndex(index);
     if (onSelect) {
@@ -47,7 +48,7 @@ const Menu: React.FC<MenuProps> = (props) => {
   };
 
   return (
-    <ul className={classes} style={style}>
+    <ul className={classes} style={style} data-testid="test-menu">
       <MenuContext.Provider value={passedContext}>
         {children}
       </MenuContext.Provider>

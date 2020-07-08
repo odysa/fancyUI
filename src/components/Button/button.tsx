@@ -48,9 +48,9 @@ const Button: React.FC<ButtonProps> = (props) => {
     ...restProps
   } = props;
 
-  const classes = classNames("btn", className, {
-    [`btn-${btnType}`]: btnType,
-    [`btn-${size}`]: size,
+  const classes = classNames("fancy-btn", className, {
+    [`fancy-btn-${btnType}`]: btnType,
+    [`fancy-btn-${size}`]: size,
     disabled: btnType === ButtonType.Link && disabled,
   });
 

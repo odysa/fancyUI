@@ -16,7 +16,7 @@ test("", () => {
   const element = wrapper.getByText("Nice");
   expect(element).toBeInTheDocument();
   expect(element.tagName).toEqual("BUTTON");
-  expect(element).toHaveClass("btn btn-default");
+  expect(element).toHaveClass("fancy-btn fancy-btn-default");
 });
 
 describe("test button component", () => {

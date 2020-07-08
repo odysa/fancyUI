@@ -44,9 +44,13 @@ function App() {
         </Button>
       </header>
       <body>
-        <Menu>
-          <MenuItem index={1}></MenuItem>
+        <Menu mode='vertical'>
+          <MenuItem index={1}>123</MenuItem>
+          <MenuItem index={2}>123</MenuItem>
+          <MenuItem index={3} disabled={true}>123</MenuItem>
+          <MenuItem index={4}>123</MenuItem>
         </Menu>
+
       </body>
     </div>
   );

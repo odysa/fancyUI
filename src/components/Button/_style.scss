@@ -5,7 +5,7 @@
  * @Last Modified time: 2020-07-06 22:43:55 
  */
 
-.btn {
+.fancy-btn {
   position: relative;
   display: inline-block;
   font-weight: $btn-font-weight;
@@ -36,7 +36,7 @@
   }
 }
 
-.btn-lg {
+.fancy-btn-lg {
   @include button-size(
     $btn-padding-y-lg,
     $btn-padding-x-lg,
@@ -44,7 +44,7 @@
     $border-radius-lg
   );
 }
-.btn-sm {
+.fancy-btn-sm {
   @include button-size(
     $btn-padding-y-sm,
     $btn-padding-x-sm,
@@ -53,15 +53,15 @@
   );
 }
 
-.btn-primary {
+.fancy-btn-primary {
   @include button-style($primary, $primary, $white);
 }
 
-.btn-danger {
+.fancy-btn-danger {
   @include button-style($danger, $danger, $white);
 }
 
-.btn-link {
+.fancy-btn-link {
   font-weight: $font-weight-normal;
   color: $btn-link-color;
   text-decoration: $link-decoration;
