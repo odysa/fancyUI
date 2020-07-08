@@ -15,7 +15,7 @@ const testVerticalProps: MenuProps = {
 
 const createMenu = (props: MenuProps) => {
   return (
-    <Menu>
+    <Menu onSelect={props.onSelect}>
       <MenuItem index={0}>active</MenuItem>
       <MenuItem index={1}>2</MenuItem>
       <MenuItem index={2} disabled={true}>
@@ -46,8 +46,9 @@ describe("", () => {
   });
   it("click items should change active and call the right callback", () => {
     const forthItem = wrapper.getByText("click");
+    expect(forthItem).not.toHaveClass("is-active");    
     fireEvent.click(forthItem);
-    //expect(testProps.onSelect).toHaveBeenCalled();
+    expect(testProps.onSelect).toHaveBeenCalledWith(3);
     expect(forthItem).toHaveClass("is-active");
     expect(activeElement).not.toHaveClass("is-active");
     fireEvent.click(disabledElement);

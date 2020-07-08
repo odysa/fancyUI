@@ -36,7 +36,7 @@ const Menu: React.FC<MenuProps> = (props) => {
   });
 
   const handleClick = (index: number) => {
-    setIndex(index);
+    setIndex(index);        
     if (onSelect) {
       onSelect(index);
     }
