@@ -7,7 +7,7 @@
 
 import React, { createContext, useState } from "react";
 import classNames from "classnames";
-
+import { MenuItemProps } from "./menuItem";
 type MenuMode = "horizontal" | "vertical";
 
 type SelectCallback = (selectedIndex: number) => void;
@@ -33,10 +33,11 @@ const Menu: React.FC<MenuProps> = (props) => {
 
   const classes = classNames("fancy-menu", className, {
     "menu-vertical": mode === "vertical",
+    "menu-horizontal": mode !== "horizontal",
   });
 
   const handleClick = (index: number) => {
-    setIndex(index);        
+    setIndex(index);
     if (onSelect) {
       onSelect(index);
     }
@@ -46,11 +47,23 @@ const Menu: React.FC<MenuProps> = (props) => {
     index: currentIndex ? currentIndex : 0,
     onSelect: handleClick,
   };
+  // check children components
+  const renderChildren = () => {
+    return React.Children.map(children, (child, index) => {
+      const childElement = child as React.FunctionComponentElement<
+        MenuItemProps
+      >;
+      const { displayName } = childElement.type;
+      if (displayName === "MenuItem" || displayName === "SubMenu")
+        return React.cloneElement(childElement, { index });
+      else console.error("Error: Not a Menu Item Component");
+    });
+  };
 
   return (
     <ul className={classes} style={style} data-testid="test-menu">
       <MenuContext.Provider value={passedContext}>
-        {children}
+        {renderChildren()}
       </MenuContext.Provider>
     </ul>
   );

@@ -1,5 +1,10 @@
 import React from "react";
-import { render, RenderResult,cleanup,fireEvent} from "@testing-library/react";
+import {
+  render,
+  RenderResult,
+  cleanup,
+  fireEvent,
+} from "@testing-library/react";
 import Menu, { MenuProps } from "./menu";
 import MenuItem from "./menuItem";
 const testProps: MenuProps = {
@@ -16,12 +21,10 @@ const testVerticalProps: MenuProps = {
 const createMenu = (props: MenuProps) => {
   return (
     <Menu onSelect={props.onSelect}>
-      <MenuItem index={0}>active</MenuItem>
-      <MenuItem index={1}>2</MenuItem>
-      <MenuItem index={2} disabled={true}>
-        disabled
-      </MenuItem>
-      <MenuItem index={3}>click</MenuItem>
+      <MenuItem>active</MenuItem>
+      <MenuItem>2</MenuItem>
+      <MenuItem disabled={true}>disabled</MenuItem>
+      <MenuItem>click</MenuItem>
     </Menu>
   );
 };
@@ -41,12 +44,12 @@ describe("", () => {
     expect(menuElement).toBeInTheDocument();
     expect(menuElement).toHaveClass("fancy-menu");
     expect(menuElement.getElementsByTagName("li").length).toEqual(4);
-    expect(disabledElement).toHaveClass("menu-item is-disabled");
-    expect(activeElement).toHaveClass("menu-item is-active");
+    expect(disabledElement).toHaveClass("fancy-menu-item is-disabled");
+    expect(activeElement).toHaveClass("fancy-menu-item is-active");
   });
   it("click items should change active and call the right callback", () => {
     const forthItem = wrapper.getByText("click");
-    expect(forthItem).not.toHaveClass("is-active");    
+    expect(forthItem).not.toHaveClass("is-active");
     fireEvent.click(forthItem);
     expect(testProps.onSelect).toHaveBeenCalledWith(3);
     expect(forthItem).toHaveClass("is-active");

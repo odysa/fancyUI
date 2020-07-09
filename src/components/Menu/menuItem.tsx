@@ -1,8 +1,8 @@
 /*
- * @Author: Chengxu Bian 
- * @Date: 2020-07-06 22:44:18 
- * @Last Modified by:   Chengxu Bian 
- * @Last Modified time: 2020-07-06 22:44:18 
+ * @Author: Chengxu Bian
+ * @Date: 2020-07-06 22:44:18
+ * @Last Modified by:   Chengxu Bian
+ * @Last Modified time: 2020-07-06 22:44:18
  */
 
 import React, { useContext } from "react";
@@ -10,7 +10,7 @@ import classNames from "classnames";
 import { MenuContext } from "./menu";
 
 export interface MenuItemProps {
-  index: number;
+  index?: number;
   disabled?: boolean;
   className?: string;
   style?: React.CSSProperties;
@@ -21,14 +21,14 @@ const MenuItem: React.FC<MenuItemProps> = (props) => {
 
   const context = useContext(MenuContext);
 
-  const classes = classNames("menu-item", className, {
+  const classes = classNames("fancy-menu-item", className, {
     "is-disabled": disabled,
     "is-active": context.index === index,
   });
 
   const handleClick = () => {
-    if (context.onSelect && !disabled) {
-      context.onSelect(index);      
+    if (context.onSelect && !disabled && typeof index === "number") {
+      context.onSelect(index);
     }
   };
 
@@ -38,5 +38,7 @@ const MenuItem: React.FC<MenuItemProps> = (props) => {
     </li>
   );
 };
+
+MenuItem.displayName = "MenuItem";
 
 export default MenuItem;
