@@ -1,13 +1,14 @@
 /*
- * @Author: Chengxu Bian 
- * @Date: 2020-07-06 22:45:08 
- * @Last Modified by:   Chengxu Bian 
- * @Last Modified time: 2020-07-06 22:45:08 
+ * @Author: Chengxu Bian
+ * @Date: 2020-07-06 22:45:08
+ * @Last Modified by:   Chengxu Bian
+ * @Last Modified time: 2020-07-06 22:45:08
  */
 import React from "react";
 import Button, { ButtonType, ButtonSize } from "./components/Button/button";
-import Menu from './components/Menu/menu';
-import MenuItem from './components/Menu/menuItem'
+import Menu from "./components/Menu/menu";
+import MenuItem from "./components/Menu/menuItem";
+import SubMenu from "./components/Menu/subMenu";
 function App() {
   return (
     <div className="App">
@@ -44,13 +45,16 @@ function App() {
         </Button>
       </header>
       <body>
-        <Menu mode='vertical'>
-          <MenuItem index={1}>123</MenuItem>
-          <MenuItem index={2}>123</MenuItem>
-          <MenuItem index={3} disabled={true}>123</MenuItem>
-          <MenuItem index={4}>123</MenuItem>
+        <Menu mode="horizontal">
+          <MenuItem>123</MenuItem>
+          <MenuItem>123</MenuItem>
+          <MenuItem disabled={true}>123</MenuItem>
+          <SubMenu title='new'>
+            <MenuItem>sub</MenuItem>
+            <MenuItem>sub</MenuItem>
+          </SubMenu>
+          <MenuItem>123</MenuItem>
         </Menu>
-
       </body>
     </div>
   );

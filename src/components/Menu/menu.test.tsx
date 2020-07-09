@@ -8,13 +8,13 @@ import {
 import Menu, { MenuProps } from "./menu";
 import MenuItem from "./menuItem";
 const testProps: MenuProps = {
-  defaultIndex: 0,
+  defaultIndex: '0',
   onSelect: jest.fn(),
   className: "test",
 };
 
 const testVerticalProps: MenuProps = {
-  defaultIndex: 0,
+  defaultIndex: '0',
   mode: "vertical",
 };
 
