@@ -1,18 +1,20 @@
 /*
  * @Author: Chengxu Bian
  * @Date: 2020-07-06 22:45:08
- * @Last Modified by:   Chengxu Bian
- * @Last Modified time: 2020-07-06 22:45:08
+ * @Last Modified by: Chengxu Bian
+ * @Last Modified time: 2020-07-10 18:36:51
  */
 import React from "react";
 import Button, { ButtonType, ButtonSize } from "./components/Button/button";
 import Menu from "./components/Menu/menu";
 import MenuItem from "./components/Menu/menuItem";
 import SubMenu from "./components/Menu/subMenu";
+import Tab from './components/Tab/tab';
+import TabItem from './components/Tab/tabItem'
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
+      {/* <header className="App-header">
         <Button btnType={ButtonType.Primary} size={ButtonSize.Large}>
           Hello
         </Button>
@@ -43,9 +45,9 @@ function App() {
         >
           Disabled Button
         </Button>
-      </header>
-      <body>
-        <Menu mode="horizontal">
+  </header>*/}
+      {/* <body>
+        <Menu mode="vertical">
           <MenuItem>123</MenuItem>
           <MenuItem>123</MenuItem>
           <MenuItem disabled={true}>123</MenuItem>
@@ -55,7 +57,13 @@ function App() {
           </SubMenu>
           <MenuItem>123</MenuItem>
         </Menu>
-      </body>
+      </body> */}
+      <Tab mode="vertical">
+        <TabItem label="tab1">tab1123123</TabItem>
+        <TabItem label="tab2">tab2</TabItem>
+        <TabItem label="tab3">tab3</TabItem>
+        <TabItem label="tab4">tab4</TabItem>
+      </Tab>
     </div>
   );
 }

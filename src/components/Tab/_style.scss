@@ -1,0 +1,73 @@
+/*
+ * @Author: Chengxu Bian 
+ * @Date: 2020-07-10 17:47:00 
+ * @Last Modified by: Chengxu Bian
+ * @Last Modified time: 2020-07-10 18:35:05
+ */
+.fancy-tab {
+  display: flex;
+  list-style: none;
+  flex-wrap: wrap;
+  position: relative;
+  border-bottom: $tab-border-width solid $tab-border-color;
+  padding-left: 0px;
+  .tab-item {
+    border-bottom: $tab-item-active-border-width solid transparent;
+    padding: $tab-item-padding-y $tab-item-padding-x;
+    &:hover,
+    &.is-activated {
+      .tab-title {
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.tab-horizontal {
+  .tab-item {
+    
+    border-bottom: $tab-item-active-border-width solid transparent;
+    padding: $tab-item-padding-y $tab-item-padding-x;
+    &:hover,
+    &.is-activated {
+      border-bottom: $tab-item-active-border-width solid $menu-item-active-color;
+      .tab-title {
+        cursor: pointer;
+      }
+    }
+    .tab-panel {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      text-align: left;
+      padding-left: $tab-item-padding-x;
+      &.is-opened {
+        display: block;
+      }
+    }
+  }
+}
+
+.tab-vertical {
+  flex-direction: column;
+  width: max-content;
+  >.tab-item {
+    
+    border-right: $menu-border-width solid $menu-border-color;
+    &:hover,
+    &.is-activated {
+      border-right: $tab-item-active-border-width solid $menu-item-active-color;
+    }
+    .tab-panel {
+      display: none;
+      padding-left: $tab-item-padding-x;
+      &.is-opened {
+        display: block;
+        position: absolute;
+        left: 100%;
+        top: 0%;
+      }
+    }
+  }
+}

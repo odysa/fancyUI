@@ -30,6 +30,10 @@ interface MenuContext {
 
 export const MenuContext = createContext<MenuContext>({ index: "0" });
 
+/**
+ * 
+ * @param props 
+ */
 const Menu: React.FC<MenuProps> = (props) => {
   const { className, mode, style, onSelect, defaultIndex, children } = props;
   const [currentIndex, setIndex] = useState(defaultIndex);

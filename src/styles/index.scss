@@ -5,10 +5,11 @@
  * @Last Modified time: 2020-07-06 22:44:53 
  */
 //config
-@import 'variables';
-@import 'normalize';
+@import "variables";
+@import "normalize";
 
-@import 'mixin';
+@import "mixin";
 
-@import '../components/Button/style';
-@import '../components//Menu/style';
+@import "../components/Button/style";
+@import "../components//Menu/style";
+@import "../components/Tab/style";
