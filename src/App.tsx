@@ -2,7 +2,7 @@
  * @Author: Chengxu Bian
  * @Date: 2020-07-06 22:45:08
  * @Last Modified by: Chengxu Bian
- * @Last Modified time: 2020-07-10 18:37:48
+ * @Last Modified time: 2020-07-10 22:19:14
  */
 import React from "react";
 import Button, { ButtonType, ButtonSize } from "./components/Button/button";
@@ -59,6 +59,12 @@ function App() {
         </Menu>
       </body> */}
       <Tab mode="horizontal">
+        <TabItem label="tab1">tab1</TabItem>
+        <TabItem label="tab2">tab2</TabItem>
+        <TabItem label="tab3">tab3</TabItem>
+        <TabItem label="tab4">tab4</TabItem>
+      </Tab>
+      <Tab mode="vertical">
         <TabItem label="tab1">tab1123123</TabItem>
         <TabItem label="tab2">tab2</TabItem>
         <TabItem label="tab3">tab3</TabItem>
