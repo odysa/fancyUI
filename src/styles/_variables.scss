@@ -2,7 +2,7 @@
  * @Author: Chengxu Bian 
  * @Date: 2020-07-06 22:44:50 
  * @Last Modified by: Chengxu Bian
- * @Last Modified time: 2020-07-10 18:07:41
+ * @Last Modified time: 2020-07-11 17:09:26
  */
 $white: #fff !default;
 $gray-100: #f8f9fa !default;
@@ -26,6 +26,10 @@ $yellow: #fadb14 !default;
 $green: #52c41a !default;
 $teal: #20c997 !default;
 $cyan: #17a2b8 !default;
+$lightBlue: #e6f7ff !default;
+$lightGreen: #f6ffed !default;
+$lightYellow: #fffbe6 !default;
+$lightRed: #fff2f0 !default;
 
 $primary: $blue !default;
 $secondary: $gray-600 !default;
@@ -67,6 +71,9 @@ $font-weight-normal: 400 !default;
 $font-weight-bold: 700 !default;
 $font-weight-bolder: bolder !default;
 $font-weight-base: $font-weight-normal !default;
+
+//
+$font-blur: rgba(0,0,0,0.65) !default;
 
 // 行高
 $line-height-base: 1.5 !default;
@@ -304,3 +311,12 @@ $tab-item-padding-y: 0.4rem;
 $tab-item-padding-x: $menu-item-padding-x !default;
 $tab-item-active-border-width: $menu-item-active-border-width !default;
 $tab-item-active-color: $menu-item-active-color !default;
+
+
+//alert
+
+$alert-message-font-size: $font-size-base !default;
+$alert-desc-font-size: $font-size-sm !default;
+$alert-padding-x: 1rem;
+$alert-padding-y: 0.5rem;
+$alert-border-radius: 0.2rem;

@@ -2,15 +2,16 @@
  * @Author: Chengxu Bian
  * @Date: 2020-07-06 22:45:08
  * @Last Modified by: Chengxu Bian
- * @Last Modified time: 2020-07-10 22:19:14
+ * @Last Modified time: 2020-07-11 17:25:44
  */
 import React from "react";
 import Button, { ButtonType, ButtonSize } from "./components/Button/button";
 import Menu from "./components/Menu/menu";
 import MenuItem from "./components/Menu/menuItem";
 import SubMenu from "./components/Menu/subMenu";
-import Tab from './components/Tab/tab';
-import TabItem from './components/Tab/tabItem'
+import Tab from "./components/Tab/tab";
+import TabItem from "./components/Tab/tabItem";
+import Alert from './components/Alert/alert'
 function App() {
   return (
     <div className="App">
@@ -70,7 +71,12 @@ function App() {
         <TabItem label="tab3">tab3</TabItem>
         <TabItem label="tab4">tab4</TabItem>
       </Tab>
+      <Alert messgae="Information" description="It is a description" type="info"/>
+      <Alert messgae="Information" description="It is a description" type="warning"/>
+      <Alert messgae="Information" description="It is a description" type="error"/>
+      <Alert messgae="Information" description="It is a description" type="success"/>
     </div>
+    
   );
 }
 

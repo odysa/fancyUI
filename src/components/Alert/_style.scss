@@ -1,0 +1,43 @@
+/*
+ * @Author: Chengxu Bian 
+ * @Date: 2020-07-11 17:14:01 
+ * @Last Modified by: Chengxu Bian
+ * @Last Modified time: 2020-07-11 17:28:02
+ */
+.fancy-alert {
+  position: relative;
+  padding: $alert-padding-y $alert-padding-x;
+  border-radius: $alert-border-radius;
+  &.alert-info {
+    @include alert-style($lightBlue, $info);
+  }
+  &.alert-warning {
+    @include alert-style($lightYellow, $yellow);
+  }
+  &.alert-error {
+    @include alert-style($lightRed, $red);
+  }
+  &.alert-success {
+    @include alert-style($lightGreen, $green);
+  }
+  .alert-desc {
+    font-size: $alert-desc-font-size;
+    color: $font-blur;
+  }
+  .alert-message {
+    margin: 0;
+    font-size: $alert-message-font-size;
+  }
+  .alert-close {
+    position: absolute;
+    //in the center of column
+    top: 50%;
+    transform: translateY(-50%);
+    right: 2%;
+    cursor: pointer;
+    font-size: 1.2em;
+  }
+  &.is-not-visible {
+    display: none;
+  }
+}
