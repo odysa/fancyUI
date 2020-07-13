@@ -2,7 +2,7 @@
  * @Author: Chengxu Bian 
  * @Date: 2020-07-10 16:51:13 
  * @Last Modified by: Chengxu Bian
- * @Last Modified time: 2020-07-10 18:34:53
+ * @Last Modified time: 2020-07-11 18:19:52
  */
 .fancy-menu {
   display: flex;
@@ -60,7 +60,14 @@
     list-style:none;
     padding-left: 0;
     white-space: nowrap;
-    //transition: $menu-transition;
+
+    .submenu-motion-enter{
+      opacity: 0;
+    }
+    .submenu-motion-enter-active{
+      opacity: 1;
+    }
+
     .menu-item {
       padding: $menu-item-padding-y $menu-item-padding-x;
       cursor: pointer;

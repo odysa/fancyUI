@@ -1,8 +1,8 @@
 /*
  * @Author: Chengxu Bian 
  * @Date: 2020-07-06 22:43:55 
- * @Last Modified by:   Chengxu Bian 
- * @Last Modified time: 2020-07-06 22:43:55 
+ * @Last Modified by: Chengxu Bian
+ * @Last Modified time: 2020-07-13 16:40:06
  */
 
 .fancy-btn {
@@ -11,6 +11,7 @@
   font-weight: $btn-font-weight;
   line-height: $btn-line-height;
   color: $body-color;
+  outline: none;
   white-space: nowrap;
   text-align: center;
   vertical-align: middle;
@@ -33,6 +34,9 @@
     > * {
       pointer-events: none;
     }
+  }
+  &:focus,&:active{
+    outline: none;
   }
 }
 

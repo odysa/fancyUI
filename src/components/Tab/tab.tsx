@@ -2,11 +2,13 @@
  * @Author: Chengxu Bian
  * @Date: 2020-07-10 16:50:59
  * @Last Modified by: Chengxu Bian
- * @Last Modified time: 2020-07-10 22:21:00
+ * @Last Modified time: 2020-07-11 17:33:49
  */
 import React, { createContext, useState } from "react";
 import classNames from "classnames";
 import { TabItemProps } from "./tabItem";
+
+// type of callback function
 type SelectCallBack = (
   selectIndex: number,
   selectContent: React.ReactNode
@@ -22,16 +24,17 @@ export interface TabProps {
 }
 
 export interface TabContext {
+  //current index selected
   index: number;
   onSelect?: SelectCallBack;
   content?: React.Component;
-  changeContent?: (content: React.Component) => void;
 }
 
 export const TabContext = createContext<TabContext>({ index: 0 });
 
 const Tab: React.FC<TabProps> = (props) => {
   const { defaultIndex, onSelect, children, className, mode } = props;
+  
   const tabClasses = classNames("fancy-tab",{
     "tab-horizontal": mode === "horizontal",
     "tab-vertical": mode === "vertical",
@@ -50,7 +53,7 @@ const Tab: React.FC<TabProps> = (props) => {
   const childrenElements = children as React.FunctionComponentElement<any>[];
   const defaultContent = childrenElements[0].props.children;
   const [currentContent, setContent] = useState(defaultContent);
-  
+  // change content after clicked
   const handleClick = (index: number, content: React.ReactNode) => {
     setindex(index);
     if (onSelect) {
@@ -61,15 +64,18 @@ const Tab: React.FC<TabProps> = (props) => {
       setContent(content);
     }
   };
+  //pass context to children
   const passedContext: TabContext = {
     index: currentIndex ? currentIndex : 0,
     onSelect: handleClick,
   };
+
   const renderChildren = () => {
     return React.Children.map(children, (child, index) => {
       const childElement = child as React.FunctionComponentElement<
         TabItemProps
       >;
+      //attach index to children
       return React.cloneElement(childElement, { index });
     });
   };
@@ -80,6 +86,7 @@ const Tab: React.FC<TabProps> = (props) => {
           {renderChildren()}
         </TabContext.Provider>
       </ul>
+      {/* content to display */}
       <div className={contentClasses}>{currentContent}</div>
     </div>
   );

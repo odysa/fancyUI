@@ -2,16 +2,18 @@
  * @Author: Chengxu Bian
  * @Date: 2020-07-06 22:45:08
  * @Last Modified by: Chengxu Bian
- * @Last Modified time: 2020-07-11 17:25:44
+ * @Last Modified time: 2020-07-13 19:35:51
  */
 import React from "react";
-import Button, { ButtonType, ButtonSize } from "./components/Button/button";
+import Button from "./components/Button/button";
 import Menu from "./components/Menu/menu";
 import MenuItem from "./components/Menu/menuItem";
 import SubMenu from "./components/Menu/subMenu";
 import Tab from "./components/Tab/tab";
 import TabItem from "./components/Tab/tabItem";
 import Alert from './components/Alert/alert'
+import Icon from './components/Icon/icon'
+import Input from './components/Input/input';
 function App() {
   return (
     <div className="App">
@@ -48,7 +50,7 @@ function App() {
         </Button>
   </header>*/}
       {/* <body>
-        <Menu mode="vertical">
+        <Menu mode="horizontal">
           <MenuItem>123</MenuItem>
           <MenuItem>123</MenuItem>
           <MenuItem disabled={true}>123</MenuItem>
@@ -58,7 +60,7 @@ function App() {
           </SubMenu>
           <MenuItem>123</MenuItem>
         </Menu>
-      </body> */}
+      </body>
       <Tab mode="horizontal">
         <TabItem label="tab1">tab1</TabItem>
         <TabItem label="tab2">tab2</TabItem>
@@ -75,6 +77,11 @@ function App() {
       <Alert messgae="Information" description="It is a description" type="warning"/>
       <Alert messgae="Information" description="It is a description" type="error"/>
       <Alert messgae="Information" description="It is a description" type="success"/>
+      <Icon icon="coffee" theme="danger" size="10x" /> */}
+    <Input
+    addonBefore="https://"
+    placeholder="123123"
+    ></Input>
     </div>
     
   );

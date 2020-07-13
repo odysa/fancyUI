@@ -31,8 +31,8 @@ interface MenuContext {
 export const MenuContext = createContext<MenuContext>({ index: "0" });
 
 /**
- * 
- * @param props 
+ *
+ * @param props
  */
 const Menu: React.FC<MenuProps> = (props) => {
   const { className, mode, style, onSelect, defaultIndex, children } = props;
@@ -70,11 +70,13 @@ const Menu: React.FC<MenuProps> = (props) => {
   };
 
   return (
+
     <ul className={classes} style={style} data-testid="test-menu">
       <MenuContext.Provider value={passedContext}>
         {renderChildren()}
       </MenuContext.Provider>
     </ul>
+
   );
 };
 
