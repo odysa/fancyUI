@@ -1,3 +1,9 @@
+/*
+ * @Author: Chengxu Bian 
+ * @Date: 2020-07-14 15:08:20 
+ * @Last Modified by:   Chengxu Bian 
+ * @Last Modified time: 2020-07-14 15:08:20 
+ */
 import React, {
   FC,
   ReactElement,
@@ -11,16 +17,17 @@ import Icon from "../Icon/icon";
 type InputSize = "lg" | "sm";
 export interface InputProps
   extends Omit<InputHTMLAttributes<HTMLElement>, "size"> {
-  /**是否禁用 Input */
+  /** whether disabled*/
   disabled?: boolean;
-  /**设置 input 大小，支持 lg 或者是 sm */
+  /** size of input*/
   size?: InputSize;
-  /**添加图标，在右侧悬浮添加一个图标，用于提示 */
+  /** icon to display*/
   icon?: IconProp;
-  /**添加前缀 用于配置一些固定组合 */
+  /** element in the front*/
   addonBefore?: string | ReactElement;
-  /**添加后缀 用于配置一些固定组合 */
+  /** element in the back*/
   addonAfter?: string | ReactElement;
+  /**callback function when changed */
   onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
