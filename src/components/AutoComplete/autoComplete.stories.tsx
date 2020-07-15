@@ -2,7 +2,7 @@
  * @Author: Chengxu Bian
  * @Date: 2020-07-14 12:04:23
  * @Last Modified by: Chengxu Bian
- * @Last Modified time: 2020-07-14 15:48:03
+ * @Last Modified time: 2020-07-14 19:31:04
  */
 import React from "react";
 import { storiesOf } from "@storybook/react";
@@ -49,7 +49,7 @@ const simpleComplete = () => {
         items = items.data;
         return items
           .slice(0, 10)
-          .map((item) => ({ value: item.name, ...item }));
+          .map((item:any) => ({ value: item.name, ...item }));
       });
   };
   const renderOption = (item: any) => {

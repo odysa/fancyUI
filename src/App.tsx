@@ -2,7 +2,7 @@
  * @Author: Chengxu Bian
  * @Date: 2020-07-06 22:45:08
  * @Last Modified by: Chengxu Bian
- * @Last Modified time: 2020-07-13 19:35:51
+ * @Last Modified time: 2020-07-14 20:05:35
  */
 import React from "react";
 import Button from "./components/Button/button";
@@ -14,7 +14,30 @@ import TabItem from "./components/Tab/tabItem";
 import Alert from './components/Alert/alert'
 import Icon from './components/Icon/icon'
 import Input from './components/Input/input';
+import axios from 'axios';
+import Uplaod, { Upload } from './components/Upload/upload';
 function App() {
+  const handleFileChange = (e:React.ChangeEvent<HTMLInputElement>)=>{
+    const files = e.target.files;
+    if(files){
+      const uploadedFile = files[0];
+      const formData = new FormData()
+      formData.append(uploadedFile.name,uploadedFile);
+      axios.post("https://jsonplaceholder.typicode.com/posts",formData,{
+        headers:{
+          'Content-Type':'multipart/form-data'
+        }
+      }).then(res=>{
+        console.log(res);
+      })
+
+    }
+  }
+  return(
+    <div className="App">
+        <Upload action="https://jsonplaceholder.typicode.com/posts"></Upload>
+    </div>
+  )
   return (
     <div className="App">
       {/* <header className="App-header">
@@ -78,10 +101,11 @@ function App() {
       <Alert messgae="Information" description="It is a description" type="error"/>
       <Alert messgae="Information" description="It is a description" type="success"/>
       <Icon icon="coffee" theme="danger" size="10x" /> */}
-    <Input
+    
+    {/* <Input
     addonBefore="https://"
     placeholder="123123"
-    ></Input>
+    ></Input> */}
     </div>
     
   );
