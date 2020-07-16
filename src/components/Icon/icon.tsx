@@ -1,3 +1,9 @@
+/*
+ * @Author: Chengxu Bian 
+ * @Date: 2020-07-16 10:39:43 
+ * @Last Modified by:   Chengxu Bian 
+ * @Last Modified time: 2020-07-16 10:39:43 
+ */
 import React from "react";
 import classNames from "classnames";
 import {
@@ -12,7 +18,7 @@ export type ThemeProps =
   | "secondary"
   | "success"
   | "info"
-  | "warn"
+  | "warning"
   | "danger";
 
 export interface IconProps extends FontAwesomeIconProps {

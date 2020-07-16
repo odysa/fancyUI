@@ -1,8 +1,13 @@
+/*
+ * @Author: Chengxu Bian 
+ * @Date: 2020-07-16 10:39:02 
+ * @Last Modified by:   Chengxu Bian 
+ * @Last Modified time: 2020-07-16 10:39:02 
+ */
 import React, { FC, useRef, useState } from "react";
 import UploadList from "./uploadList";
 import Button from "../Button/button";
 import axios from "axios";
-import { setegid } from "process";
 
 export interface UploadProps {
   action: string;
@@ -123,15 +128,12 @@ export const Upload: FC<UploadProps> = (props) => {
         onUploadProgress: (e) => {
           let percentage = Math.round((e.loaded * 100) / e.total) || 0;
           console.log(percentage);
-          //not uploaded yet
-          if (percentage < 100) {
-            updateFileStatus(_file, {
-              percent: percentage,
-              status: "uploading",
-            });
-            if (onProgress) {
-              onProgress(percentage, file);
-            }
+          updateFileStatus(_file, {
+            percent: percentage,
+            status: "uploading",
+          });
+          if (onProgress) {
+            onProgress(percentage, file);
           }
         },
       })

@@ -1,3 +1,9 @@
+/*
+ * @Author: Chengxu Bian 
+ * @Date: 2020-07-16 10:39:49 
+ * @Last Modified by:   Chengxu Bian 
+ * @Last Modified time: 2020-07-16 10:39:49 
+ */
 import { RefObject,useEffect} from "react";
 
 function useClickOutside(ref: RefObject<HTMLElement>, handler: Function) {

@@ -1,5 +1,7 @@
 import React from "react";
 import Upload, { UploadFile } from "./upload";
+import Progress from '../Progress/progress';
+
 import Icon from "../Icon/icon";
 
 interface UploadListProps {
@@ -39,6 +41,7 @@ const UploadList: React.FC<UploadListProps> = (props) => {
           >
             <Icon icon="times" theme="primary"></Icon>
           </span>
+          <Progress percent={item.percent as number} theme="primary" />
         </li>
       ))}
     </ul>
