@@ -1,3 +1,9 @@
+/*
+ * @Author: Chengxu Bian 
+ * @Date: 2020-07-17 20:51:50 
+ * @Last Modified by:   Chengxu Bian 
+ * @Last Modified time: 2020-07-17 20:51:50 
+ */
 import Tab, { TabProps } from "./tab";
 import TabItem, { TabItemProps } from "./tabItem";
 import { FC } from "react";

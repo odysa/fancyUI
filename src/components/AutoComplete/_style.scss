@@ -1,4 +1,32 @@
-.item-highlighted{
-  background-color: $cyan;
-  color: white;
+/*
+ * @Author: Chengxu Bian 
+ * @Date: 2020-07-17 19:29:58 
+ * @Last Modified by:   Chengxu Bian 
+ * @Last Modified time: 2020-07-17 19:29:58 
+ */
+.fancy-autocomplete {
+  position: relative;
+}
+.fancy-dropdown {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  position: absolute;
+  background-color: white;
+  white-space: nowrap;
+  left: 0;
+  top: calc(100% + 5px);
+  border: $autoComplete-border-width solid $autoComplete-border-color;
+  box-shadow: $autoComplete-box-shadow;
+  width: 100%;
+  z-index: $autoComplete-z-index;
+  .fancy-suggestion-item {
+    cursor: pointer;
+    padding: $autoComplete-item-padding-y $autoComplete-item-padding-x;
+    color: $autoComplete-item-color;
+  }
+  .item-highlighted {
+    background-color: $primary;
+    color: white;
+  }
 }

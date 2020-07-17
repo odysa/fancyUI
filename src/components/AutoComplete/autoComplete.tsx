@@ -2,13 +2,13 @@
  * @Author: Chengxu Bian
  * @Date: 2020-07-14 12:04:20
  * @Last Modified by: Chengxu Bian
- * @Last Modified time: 2020-07-14 18:25:58
+ * @Last Modified time: 2020-07-17 20:30:24
  */
 import React, { FC, useState, ChangeEvent, useEffect, useRef } from "react";
 import classNames from "classnames";
 import { InputProps, Input } from "../Input/input";
 import useDebounce from "../../hooks/useDebounce";
-import useClickOutside from '../../hooks/useClickOutside';
+import useClickOutside from "../../hooks/useClickOutside";
 interface DataObject {
   value: string;
 }
@@ -32,20 +32,24 @@ export const AutoComplete: FC<AutoCompleteProps> = (props) => {
     onSelect,
     value,
     renderOption,
+    onPressKey,
     ...restProps
   } = props;
 
   const [inputValue, setInput] = useState(value as string);
   const [suggestions, setSuggestions] = useState<DataType[]>([]);
   const [highlightIndex, setHighligtIndex] = useState(-1);
+
   const triggleSearch = useRef(false);
   const debouncedValue = useDebounce(inputValue, 500);
   const commonRef = useRef(null);
-  useClickOutside(commonRef,()=>{setSuggestions([])})
+  useClickOutside(commonRef, () => {
+    setSuggestions([]);
+  });
 
   //debounced value change callback
   useEffect(() => {
-    if (debouncedValue&&triggleSearch.current) {
+    if (debouncedValue && triggleSearch.current) {
       const res = fetchSuggestions(debouncedValue);
 
       if (res instanceof Promise) {
@@ -72,11 +76,11 @@ export const AutoComplete: FC<AutoCompleteProps> = (props) => {
       case 13:
         if (suggestions[highlightIndex]) {
           handleSelect(suggestions[highlightIndex]);
-        }
+        } else if (onSelect) onSelect(inputValue);
         break;
       //up
       case 38:
-        highlight(highlightIndex - 1); 
+        highlight(highlightIndex - 1);
         break;
       //down
       case 40:
@@ -101,21 +105,20 @@ export const AutoComplete: FC<AutoCompleteProps> = (props) => {
   const handleSelect = (item: DataType) => {
     setInput(item.value);
     setSuggestions([]);
-    if (onSelect) onSelect(item.value);
     triggleSearch.current = false;
   };
 
   const renderTemplate = (item: DataType) => {
-    return renderOption ? renderOption(item) : item;
+    return renderOption ? renderOption(item) : item.value;
   };
 
   /**
    * create a dropdown board for suggestions
    */
   const createDropDown = () => (
-    <ul>
+    <ul className="fancy-dropdown">
       {suggestions.map((item, index) => {
-        const classes = classNames("suggestion-item", {
+        const classes = classNames("fancy-suggestion-item", {
           "item-highlighted": index === highlightIndex,
         });
         return (
@@ -125,6 +128,9 @@ export const AutoComplete: FC<AutoCompleteProps> = (props) => {
             onClick={() => {
               handleSelect(item);
             }}
+            onMouseEnter={() => {
+              highlight(index);
+            }}
           >
             {renderTemplate(item)}
           </li>
@@ -133,7 +139,7 @@ export const AutoComplete: FC<AutoCompleteProps> = (props) => {
     </ul>
   );
   return (
-    <div ref={commonRef}>
+    <div ref={commonRef} className="fancy-autocomplete">
       <Input
         value={inputValue}
         {...restProps}

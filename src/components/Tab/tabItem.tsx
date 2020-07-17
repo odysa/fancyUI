@@ -2,9 +2,9 @@
  * @Author: Chengxu Bian
  * @Date: 2020-07-10 16:51:01
  * @Last Modified by: Chengxu Bian
- * @Last Modified time: 2020-07-10 22:07:38
+ * @Last Modified time: 2020-07-17 18:10:18
  */
-import React, { useContext } from "react";
+import React, { useContext, FC } from "react";
 import classNames from "classnames";
 import { TabContext } from "./tab";
 export interface TabItemProps {
@@ -14,7 +14,7 @@ export interface TabItemProps {
   classname?: string;
 }
 
-const TabItem: React.FC<TabItemProps> = (props) => {
+export const TabItem: FC<TabItemProps> = (props) => {
   const { index, disabled, label, children, classname } = props;
   const context = useContext(TabContext);
   

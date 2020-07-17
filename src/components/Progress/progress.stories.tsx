@@ -2,28 +2,27 @@
  * @Author: Chengxu Bian
  * @Date: 2020-07-16 10:39:16
  * @Last Modified by: Chengxu Bian
- * @Last Modified time: 2020-07-16 11:14:39
+ * @Last Modified time: 2020-07-17 18:12:53
  */
 import React, { useState } from "react";
 import { storiesOf } from "@storybook/react";
 import Progress from "./progress";
 const defaultProgress= () => {
-  const [percent,setPercent] = useState(0);
-  setTimeout(() => {
-    if (percent < 100) setPercent(percent+1);
-    else setPercent(0);    
-  }, 200);
+  // setTimeout(() => {
+  //   if (percent < 100) setPercent(percent+1);
+  //   else setPercent(0);    
+  // }, 200);
 
   return (
-    <>
-      <Progress percent={percent} theme="primary" />
+    <div>
+      <Progress percent={60} theme="primary" />
       <br />
-      <Progress percent={percent} theme="primary" showText />
-    </>
+      <Progress percent={60} theme="primary" showText />
+    </div>
   );
 };
 const themeProgress = () => (
-  <>
+  <div>
     <Progress percent={80} theme="primary" showText />
     <br />
     <Progress percent={60} theme="danger" showText />
@@ -35,7 +34,7 @@ const themeProgress = () => (
     <Progress percent={30} theme="success" showText />
     <br />
     <Progress percent={20} theme="warning" showText />
-  </>
+  </div>
 );
 
 storiesOf("Progress", module)

@@ -1,3 +1,9 @@
+/*
+ * @Author: Chengxu Bian 
+ * @Date: 2020-07-16 16:15:38 
+ * @Last Modified by:   Chengxu Bian 
+ * @Last Modified time: 2020-07-16 16:15:38 
+ */
 import { configure, addDecorator, addParameters } from "@storybook/react";
 import React from "react";
 import { withInfo } from "@storybook/addon-info";
@@ -23,7 +29,15 @@ addDecorator(UIDecorator);
 addDecorator(withInfo);
 addParameters({ info: { inline: true, header: false } });
 
+
+const loaderFn = () => {
+  const allExports = [require("../src/welcome.stories.tsx")];
+  const req = require.context("../src/components", true, /\.stories\.tsx$/);
+  req.keys().forEach((fname) => allExports.push(req(fname)));
+  return allExports;
+};
+
 configure(
-  require.context("../src/components", true, /\.stories\.tsx$/),
+  loaderFn,
   module
 );

@@ -16,6 +16,9 @@
     svg {
       color: $input-placeholder-color;
     }
+    &:hover{
+      cursor: pointer;
+    }
   }
 }
 .icon-wrapper+.fancy-input-inner {
@@ -33,7 +36,6 @@
   background-clip: padding-box;
   border: $input-border-width solid $input-border-color;
 
-  // Note: This has no effect on <select>s in some browsers, due to the limited stylability of `<select>`s in CSS.
   border-radius: $input-border-radius;
 
   box-shadow: $input-box-shadow;
@@ -45,18 +47,18 @@
     border-color: $input-focus-border-color;
     outline: 0;
     box-shadow: $input-focus-box-shadow;
-    // Avoid using mixin so we can pass custom focus shadow properly
+
   }
   &::placeholder {
     color: $input-placeholder-color;
-    // Override Firefox's unusual default opacity; see https://github.com/twbs/bootstrap/pull/11526.
+    // Override Firefox's unusual default opacity; 
     opacity: 1;
   }
   &:disabled,
   &[readonly] {
     background-color: $input-disabled-bg;
     border-color: $input-disabled-border-color;
-    // iOS fix for unreadable disabled content; see https://github.com/twbs/bootstrap/issues/11655.
+    // iOS fix for unreadable disabled content; 
     opacity: 1;
   }
 }

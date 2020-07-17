@@ -2,9 +2,9 @@
  * @Author: Chengxu Bian
  * @Date: 2020-07-10 16:50:59
  * @Last Modified by: Chengxu Bian
- * @Last Modified time: 2020-07-11 17:33:49
+ * @Last Modified time: 2020-07-17 18:09:43
  */
-import React, { createContext, useState } from "react";
+import React, { createContext, useState, FC, FunctionComponentElement, ReactNode } from "react";
 import classNames from "classnames";
 import { TabItemProps } from "./tabItem";
 
@@ -32,7 +32,7 @@ export interface TabContext {
 
 export const TabContext = createContext<TabContext>({ index: 0 });
 
-const Tab: React.FC<TabProps> = (props) => {
+export const Tab: FC<TabProps> = (props) => {
   const { defaultIndex, onSelect, children, className, mode } = props;
   
   const tabClasses = classNames("fancy-tab",{
@@ -50,11 +50,11 @@ const Tab: React.FC<TabProps> = (props) => {
   
   const [currentIndex, setindex] = useState(defaultIndex);
   //get first children's props
-  const childrenElements = children as React.FunctionComponentElement<any>[];
+  const childrenElements = children as FunctionComponentElement<any>[];
   const defaultContent = childrenElements[0].props.children;
   const [currentContent, setContent] = useState(defaultContent);
   // change content after clicked
-  const handleClick = (index: number, content: React.ReactNode) => {
+  const handleClick = (index: number, content:ReactNode) => {
     setindex(index);
     if (onSelect) {
       onSelect(index);
@@ -72,7 +72,7 @@ const Tab: React.FC<TabProps> = (props) => {
 
   const renderChildren = () => {
     return React.Children.map(children, (child, index) => {
-      const childElement = child as React.FunctionComponentElement<
+      const childElement = child as FunctionComponentElement<
         TabItemProps
       >;
       //attach index to children

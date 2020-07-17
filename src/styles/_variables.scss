@@ -2,7 +2,7 @@
  * @Author: Chengxu Bian 
  * @Date: 2020-07-06 22:44:50 
  * @Last Modified by: Chengxu Bian
- * @Last Modified time: 2020-07-11 17:09:26
+ * @Last Modified time: 2020-07-17 19:29:46
  */
 $white: #fff !default;
 $gray-100: #f8f9fa !default;
@@ -73,7 +73,7 @@ $font-weight-bolder: bolder !default;
 $font-weight-base: $font-weight-normal !default;
 
 //
-$font-blur: rgba(0,0,0,0.65) !default;
+$font-blur: rgba(0, 0, 0, 0.65) !default;
 
 // 行高
 $line-height-base: 1.5 !default;
@@ -312,7 +312,6 @@ $tab-item-padding-x: $menu-item-padding-x !default;
 $tab-item-active-border-width: $menu-item-active-border-width !default;
 $tab-item-active-color: $menu-item-active-color !default;
 
-
 //alert
 
 $alert-message-font-size: $font-size-base !default;
@@ -320,3 +319,15 @@ $alert-desc-font-size: $font-size-sm !default;
 $alert-padding-x: 1rem;
 $alert-padding-y: 0.5rem;
 $alert-border-radius: 0.2rem;
+
+//autocomplete
+$autoComplete-item-padding-y: 0.5rem !default;
+$autoComplete-item-padding-x: 1rem !default;
+$autoComplete-item-color: #212529 !default;
+$autoComplete-item-transition: color 0.15s ease-in-out,
+  border-color 0.15s ease-in-out !default;
+$autoComplete-border-width: 1px !default;
+$autoComplete-border-color: #dee2e6 !default;
+$autoComplete-z-index: 100 !default;
+$autoComplete-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.12),
+  0 0 6px 0 rgba(0, 0, 0, 0.04) !default;

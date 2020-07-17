@@ -1,8 +1,8 @@
 /*
  * @Author: Chengxu Bian 
  * @Date: 2020-07-16 10:39:05 
- * @Last Modified by:   Chengxu Bian 
- * @Last Modified time: 2020-07-16 10:39:05 
+ * @Last Modified by: Chengxu Bian
+ * @Last Modified time: 2020-07-17 18:13:30
  */
 import React from 'react';
 import { storiesOf } from "@storybook/react";
@@ -16,15 +16,11 @@ const checkFileSize = (file:File)=>{
   return true;
 }
 
-// const filePromise = (file:File){
-//   const newFile = new File([file],'new.docx',{type:file.type})
-//   return Promise.resolve(newFile);
-// }
 
 const SimpleUpload = () =>{
   return(
     <Upload
-      action="https://run.mocky.io/v3/44435017-162d-49e1-8ace-03f5907ab0e1"
+      action="www.exaple.com"
       onChange={action('changed')}
       beforeUpload = {checkFileSize}
     />
@@ -33,4 +29,4 @@ const SimpleUpload = () =>{
 
 
 storiesOf('Upload component',module)
-.add('Upload',SimpleUpload)
+.add('Upload',SimpleUpload);

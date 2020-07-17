@@ -4,33 +4,28 @@
  * @Last Modified by: Chengxu Bian
  * @Last Modified time: 2020-07-11 17:26:27
  */
-import React, { useState } from "react";
+import React, { useState, FC } from "react";
 import classNames from "classnames";
-
+import Icon from "../Icon/icon";
 type AlertType = "success" | "info" | "warning" | "error";
 
 /**
  * Interface of props
  */
 export interface AlertProps {
-  //title
+  /** Message to display */
   messgae: string;
-  //blank description
+  /** description of message */
   description?: string;
+  /** Alert type*/
   type?: AlertType;
+  /** closable or not*/
   closable?: boolean;
   className?: string;
 }
 
-const Alert: React.FC<AlertProps> = (props) => {
-  const {
-    messgae,
-    description,
-    type,
-    closable,
-    children,
-    className,
-  } = props;
+export const Alert: FC<AlertProps> = (props) => {
+  const { messgae, description, type, closable, children, className,...restProps } = props;
   const [visible, setVisibility] = useState(true);
   const classes = classNames("fancy-alert", className, {
     [`alert-${type}`]: type,
@@ -41,17 +36,24 @@ const Alert: React.FC<AlertProps> = (props) => {
     setVisibility(!visible);
   };
   return (
-    <div className={classes}>
+    <div className={classes} {...restProps}>
       <p className="alert-message">{messgae}</p>
       <span className="alert-desc">{description}</span>
-      {closable&&<i className="iconfont icon-close alert-close" onClick={handleClick}/>}
+      {closable && (
+        <Icon
+          theme="secondary"
+          icon="times"
+          className="alert-close"
+          onClick={handleClick}
+        />
+      )}
     </div>
   );
 };
 
 Alert.defaultProps = {
   type: "info",
-  closable:true,
+  closable: true,
 };
 
 export default Alert;

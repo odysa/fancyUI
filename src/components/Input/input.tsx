@@ -1,14 +1,15 @@
 /*
- * @Author: Chengxu Bian 
- * @Date: 2020-07-14 15:08:20 
+ * @Author: Chengxu Bian
+ * @Date: 2020-07-14 15:08:20
  * @Last Modified by: Chengxu Bian
- * @Last Modified time: 2020-07-16 10:39:30
+ * @Last Modified time: 2020-07-17 20:48:57
  */
 import React, {
   FC,
   ReactElement,
   InputHTMLAttributes,
   ChangeEvent,
+  useState,
 } from "react";
 import classNames from "classnames";
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
@@ -29,13 +30,10 @@ export interface InputProps
   addonAfter?: string | ReactElement;
   /**callback function when changed */
   onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
+  onClickIcon?: (value: any) => void;
+  onPressKey?: (value: any) => void;
 }
 
-/**
- * Input component
- *
- * Support all input HTML Attributes
- */
 export const Input: FC<InputProps> = (props) => {
   const {
     disabled,
@@ -44,6 +42,8 @@ export const Input: FC<InputProps> = (props) => {
     addonBefore,
     addonAfter,
     style,
+    onClickIcon,
+    onPressKey,
     ...restProps
   } = props;
   const classes = classNames("fancy-input-wrapper", {
@@ -51,6 +51,15 @@ export const Input: FC<InputProps> = (props) => {
     "is-disabled": disabled,
     "input-group": addonBefore || addonAfter,
   });
+  const [inputValue, setInputValue] = useState("");
+  const handleClick = (e: React.MouseEvent) => {
+    if (onClickIcon) onClickIcon(inputValue);
+  };
+  const handlePress = (e: React.KeyboardEvent) => {
+    if (e.keyCode === 13) {
+      if (onPressKey) onPressKey(inputValue);
+    }
+  };
   const fixControlledValue = (value: any) => {
     //if value not exist, set it empty string
     if (value == null) {
@@ -70,10 +79,16 @@ export const Input: FC<InputProps> = (props) => {
       )}
       {icon && (
         <div className="icon-wrapper">
-          <Icon icon={icon} title={`title-${icon}`} />
+          <Icon icon={icon} title={`title-${icon}`} onClick={handleClick} />
         </div>
       )}
-      <input className="fancy-input-inner" disabled={disabled} {...restProps} />
+      <input
+        onChange={(e:any)=>{setInputValue(e.target.value)}}
+        className="fancy-input-inner"
+        disabled={disabled}
+        onKeyDown={handlePress}
+        {...restProps}
+      />
       {addonAfter && (
         <div className="fancy-input-group-addonAfter">{addonAfter}</div>
       )}

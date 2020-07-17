@@ -2,7 +2,7 @@
  * @Author: Chengxu Bian
  * @Date: 2020-07-14 12:04:23
  * @Last Modified by: Chengxu Bian
- * @Last Modified time: 2020-07-14 19:31:04
+ * @Last Modified time: 2020-07-17 19:42:27
  */
 import React from "react";
 import { storiesOf } from "@storybook/react";
@@ -10,52 +10,38 @@ import { action } from "@storybook/addon-actions";
 import AutoComplete from "./autoComplete";
 
 const simpleComplete = () => {
-  const nations = [
-    "China",
-    "US",
-    "France",
-    "German",
-    "UK",
-    "Canada",
-    "Japan",
-    "Korea",
-  ];
-  const lakers = [
-    { value: "bradley" },
-    { value: "pope" },
-    { value: "caruso" },
-    { value: "cook" },
-    { value: "cousins" },
-    { value: "james" },
-    { value: "AD" },
-    { value: "green" },
-    { value: "howard" },
-    { value: "kuzma" },
-    { value: "McGee" },
-    { value: "rando" },
-  ];
-  // const handleFetch = (query:string)=>{
-  //   return lakers.filter(name=>name.value.includes(query));
-  // }
   const handleFetch = (query: string) => {
-    return fetch(`https://eaza.cc/api/v1/search/${query}/1`)
+    const nations = [
+      "China",
+      "US",
+      "France",
+      "German",
+      "UK",
+      "Canada",
+      "Japan",
+      "Korea",
+    ].map((item) => ({ value: item }));
+    return nations.filter((item) => item.value.includes(query));
+  };
+  return <AutoComplete fetchSuggestions={handleFetch}></AutoComplete>;
+};
+
+const asyncComplete = () => {
+  const handleFetch = (query: string) => {
+    return fetch(`https://api.github.com/search/users?q=${query}`)
       .then((res) => {
-        const r = res.json();
-        console.log(r);
-        return r;
+        return res.json();
       })
-      .then((items ) => {
-        //console.log(items);
-        items = items.data;
-        return items
+      .then((items) => {
+        return items.items
           .slice(0, 10)
-          .map((item:any) => ({ value: item.name, ...item }));
+          .map((item: any) => ({ value: item.login, ...item }));
       });
   };
   const renderOption = (item: any) => {
     return (
       <>
-        <h2>Name: {item.value}</h2>
+        <span>Name:{item.value}</span>
       </>
     );
   };
@@ -68,4 +54,54 @@ const simpleComplete = () => {
   );
 };
 
-storiesOf("Auto Complete", module).add("Simple one", simpleComplete);
+storiesOf("AutoComplete", module)
+  .add("Default", simpleComplete, {
+    info: {
+      text: `
+      ## Local suggestions example
+      ~~~js
+      const handleFetch = (query: string) => {
+        const nations = [
+          "China",
+          "US",
+          "France",
+          "German",
+          "UK",
+          "Canada",
+          "Japan",
+          "Korea",
+        ].map((item) => ({ value: item }));
+        return nations.filter((item) => item.includes(query));
+      };
+      ~~~
+      `,
+    },
+  })
+  .add("Async", asyncComplete, {
+    info: {
+      text: `
+  ## Async suggetions example
+  ~~~js
+  const handleFetch = (query: string) => {
+    return fetch("https://api.github.com/search/users?q="+query)
+      .then((res) => {
+        return res.json();
+      })
+      .then((items) => {
+        return items.items
+          .slice(0, 10)
+          .map((item: any) => ({ value: item.login, ...item }));
+      });
+  };
+  // render template
+  const renderOption = (item: any) => {
+    return (
+      <>
+        <span>Name: {item.value}</span>
+      </>
+    );
+  };
+  ~~~
+  `,
+    },
+  });
