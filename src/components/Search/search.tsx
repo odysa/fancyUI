@@ -2,7 +2,7 @@
  * @Author: Chengxu Bian
  * @Date: 2020-07-17 20:39:38
  * @Last Modified by: Chengxu Bian
- * @Last Modified time: 2020-07-17 20:40:29
+ * @Last Modified time: 2020-07-17 22:21:59
  */
 import React, { FC } from "react";
 import AutoComlete, { AutoCompleteProps } from "../AutoComplete/autoComplete";
@@ -23,7 +23,7 @@ export const Search: FC<SearchProps> = (props) => {
         fetchSuggestions={fetchSuggestions}
         icon="search"
         onClickIcon={onSearch}
-        onSelect={onSearch}
+        onPressKey={onSearch}
       />
     );
 

@@ -1,8 +1,8 @@
 /*
  * @Author: Chengxu Bian 
  * @Date: 2020-07-17 19:29:35 
- * @Last Modified by:   Chengxu Bian 
- * @Last Modified time: 2020-07-17 19:29:35 
+ * @Last Modified by: Chengxu Bian
+ * @Last Modified time: 2020-07-17 21:00:02
  */
 import React from "react";
 import { storiesOf } from "@storybook/react";
@@ -10,7 +10,7 @@ import { action } from "@storybook/addon-actions";
 import Input from "./input";
 
 const defaultInput = () => {
-  return <Input onChange={action("change")} placeholder="Please Enter" />;
+  return <Input onChange={action("change")} placeholder="Please Enter"/>;
 };
 
 const inputWithDisabled = () => {

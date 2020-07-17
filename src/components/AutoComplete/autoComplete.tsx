@@ -2,7 +2,7 @@
  * @Author: Chengxu Bian
  * @Date: 2020-07-14 12:04:20
  * @Last Modified by: Chengxu Bian
- * @Last Modified time: 2020-07-17 20:30:24
+ * @Last Modified time: 2020-07-17 22:24:00
  */
 import React, { FC, useState, ChangeEvent, useEffect, useRef } from "react";
 import classNames from "classnames";
@@ -19,7 +19,7 @@ export interface AutoCompleteProps extends Omit<InputProps, "onSelect"> {
   /** fuction to get suggestions*/
   fetchSuggestions: (str: string) => DataType[] | Promise<DataType[]>;
   /** callback function for selection*/
-  onSelect?: (itemL: string) => void;
+  onSelect?: (itemL: DataType) => void;
   renderOption?: (item: DataType) => React.ReactElement;
 }
 /**
@@ -63,7 +63,7 @@ export const AutoComplete: FC<AutoCompleteProps> = (props) => {
       setSuggestions([]);
     }
     setHighligtIndex(-1);
-  }, [debouncedValue]);
+  }, [debouncedValue, fetchSuggestions]);
 
   const highlight = (index: number) => {
     if (index < 0) index = 0;
@@ -76,7 +76,7 @@ export const AutoComplete: FC<AutoCompleteProps> = (props) => {
       case 13:
         if (suggestions[highlightIndex]) {
           handleSelect(suggestions[highlightIndex]);
-        } else if (onSelect) onSelect(inputValue);
+        } else if (onPressKey) onPressKey(inputValue);
         break;
       //up
       case 38:
@@ -96,8 +96,7 @@ export const AutoComplete: FC<AutoCompleteProps> = (props) => {
   };
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    //remove redundant spaces
-    const value = e.target.value.trim();
+    const value = e.target.value;
     setInput(value);
     triggleSearch.current = true;
   };
@@ -105,6 +104,9 @@ export const AutoComplete: FC<AutoCompleteProps> = (props) => {
   const handleSelect = (item: DataType) => {
     setInput(item.value);
     setSuggestions([]);
+    if (onSelect) {
+      onSelect(item);
+    }
     triggleSearch.current = false;
   };
 
@@ -142,9 +144,9 @@ export const AutoComplete: FC<AutoCompleteProps> = (props) => {
     <div ref={commonRef} className="fancy-autocomplete">
       <Input
         value={inputValue}
-        {...restProps}
         onChange={handleChange}
         onKeyDown={handleKeyDown}
+        {...restProps}
       />
       {suggestions.length > 0 && createDropDown()}
     </div>

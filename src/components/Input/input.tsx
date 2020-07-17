@@ -2,14 +2,14 @@
  * @Author: Chengxu Bian
  * @Date: 2020-07-14 15:08:20
  * @Last Modified by: Chengxu Bian
- * @Last Modified time: 2020-07-17 20:48:57
+ * @Last Modified time: 2020-07-17 22:19:01
  */
 import React, {
   FC,
   ReactElement,
   InputHTMLAttributes,
   ChangeEvent,
-  useState,
+  useRef,
 } from "react";
 import classNames from "classnames";
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
@@ -46,20 +46,27 @@ export const Input: FC<InputProps> = (props) => {
     onPressKey,
     ...restProps
   } = props;
+  // get dom of input
+  const inputElement = useRef<HTMLInputElement>(null);
   const classes = classNames("fancy-input-wrapper", {
     [`input-size-${size}`]: size,
     "is-disabled": disabled,
     "input-group": addonBefore || addonAfter,
   });
-  const [inputValue, setInputValue] = useState("");
+
   const handleClick = (e: React.MouseEvent) => {
-    if (onClickIcon) onClickIcon(inputValue);
-  };
-  const handlePress = (e: React.KeyboardEvent) => {
-    if (e.keyCode === 13) {
-      if (onPressKey) onPressKey(inputValue);
+    if (onClickIcon && inputElement.current) {
+      onClickIcon(inputElement.current.value);
     }
   };
+  const handlePress = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.keyCode === 13) {
+      if (onPressKey && inputElement.current) {
+        onPressKey(inputElement.current.value);
+      }
+    }
+  };
+
   const fixControlledValue = (value: any) => {
     //if value not exist, set it empty string
     if (value == null) {
@@ -83,7 +90,7 @@ export const Input: FC<InputProps> = (props) => {
         </div>
       )}
       <input
-        onChange={(e:any)=>{setInputValue(e.target.value)}}
+        ref={inputElement}
         className="fancy-input-inner"
         disabled={disabled}
         onKeyDown={handlePress}
