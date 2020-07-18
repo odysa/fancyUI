@@ -1,10 +1,10 @@
 /*
  * @Author: Chengxu Bian 
  * @Date: 2020-07-16 10:39:53 
- * @Last Modified by:   Chengxu Bian 
- * @Last Modified time: 2020-07-16 10:39:53 
+ * @Last Modified by: Chengxu Bian
+ * @Last Modified time: 2020-07-18 20:31:43
  */
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 function useDebounce(value: string, delay: number = 300) {
   const [debounceVal, setdebounceVal] = useState(value);

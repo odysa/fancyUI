@@ -1,6 +1,12 @@
+/*
+ * @Author: Chengxu Bian 
+ * @Date: 2020-07-18 20:32:10 
+ * @Last Modified by:   Chengxu Bian 
+ * @Last Modified time: 2020-07-18 20:32:10 
+ */
 import React from "react";
-import Upload, { UploadFile } from "./upload";
-import Progress from '../Progress/progress';
+import { UploadFile } from "./upload";
+import Progress from "../Progress/progress";
 
 import Icon from "../Icon/icon";
 

@@ -2,7 +2,7 @@
  * @Author: Chengxu Bian 
  * @Date: 2020-07-06 22:44:50 
  * @Last Modified by: Chengxu Bian
- * @Last Modified time: 2020-07-17 19:29:46
+ * @Last Modified time: 2020-07-18 20:19:56
  */
 $white: #fff !default;
 $gray-100: #f8f9fa !default;
@@ -49,6 +49,7 @@ $theme-colors: (
   "danger": $danger,
   "light": $light,
   "dark": $dark,
+  "error": $danger,
 );
 
 $font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
@@ -58,13 +59,13 @@ $font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas,
   "Liberation Mono", "Courier New", monospace !default;
 $font-family-base: $font-family-sans-serif !default;
 
-// 字体大小
+// font-size
 $font-size-base: 1rem !default; // Assumes the browser default, typically `16px`
 $font-size-lg: $font-size-base * 1.25 !default;
 $font-size-sm: $font-size-base * 0.875 !default;
 $font-size-root: null !default;
 
-// 字重
+// font weight
 $font-weight-lighter: lighter !default;
 $font-weight-light: 300 !default;
 $font-weight-normal: 400 !default;
@@ -72,15 +73,15 @@ $font-weight-bold: 700 !default;
 $font-weight-bolder: bolder !default;
 $font-weight-base: $font-weight-normal !default;
 
-//
+// font blur
 $font-blur: rgba(0, 0, 0, 0.65) !default;
 
-// 行高
+// line height
 $line-height-base: 1.5 !default;
 $line-height-lg: 2 !default;
 $line-height-sm: 1.25 !default;
 
-// 标题大小
+// title
 $h1-font-size: $font-size-base * 2.5 !default;
 $h2-font-size: $font-size-base * 2 !default;
 $h3-font-size: $font-size-base * 1.75 !default;
@@ -88,7 +89,7 @@ $h4-font-size: $font-size-base * 1.5 !default;
 $h5-font-size: $font-size-base * 1.25 !default;
 $h6-font-size: $font-size-base !default;
 
-// 链接
+// link
 $link-color: $primary !default;
 $link-decoration: none !default;
 $link-hover-color: darken($link-color, 15%) !default;
@@ -113,7 +114,7 @@ $headings-color: null !default;
 
 $paragraph-margin-bottom: 1rem !default;
 
-// 字体其他部分 heading list hr 等等
+// font heading
 $headings-margin-bottom: $spacer / 2 !default;
 $headings-font-family: null !default;
 $headings-font-style: null !default;
@@ -172,11 +173,9 @@ $hr-margin-y: $spacer !default;
 $code-font-size: $small-font-size !default;
 $code-color: $pink !default;
 $pre-color: null !default;
-
-// options 可配置选项
 $enable-pointer-cursor-for-buttons: true !default;
 
-// 边框 和 border radius
+// border
 
 $border-width: 1px !default;
 $border-color: $gray-300 !default;
@@ -185,14 +184,13 @@ $border-radius: 0.25rem !default;
 $border-radius-lg: 0.3rem !default;
 $border-radius-sm: 0.2rem !default;
 
-// 不同类型的 box shadow
+// box shadow
 $box-shadow-sm: 0 0.125rem 0.25rem rgba($black, 0.075) !default;
 $box-shadow: 0 0.5rem 1rem rgba($black, 0.15) !default;
 $box-shadow-lg: 0 1rem 3rem rgba($black, 0.175) !default;
 $box-shadow-inset: inset 0 1px 2px rgba($black, 0.075) !default;
 
-// 按钮
-// 按钮基本属性
+//button
 $btn-font-weight: 400;
 $btn-padding-y: 0.375rem !default;
 $btn-padding-x: 0.75rem !default;
@@ -200,7 +198,7 @@ $btn-font-family: $font-family-base !default;
 $btn-font-size: $font-size-base !default;
 $btn-line-height: $line-height-base !default;
 
-//不同大小按钮的 padding 和 font size
+
 $btn-padding-y-sm: 0.25rem !default;
 $btn-padding-x-sm: 0.5rem !default;
 $btn-font-size-sm: $font-size-sm !default;
@@ -209,19 +207,17 @@ $btn-padding-y-lg: 0.5rem !default;
 $btn-padding-x-lg: 1rem !default;
 $btn-font-size-lg: $font-size-lg !default;
 
-// 按钮边框
+
 $btn-border-width: $border-width !default;
 
-// 按钮其他
+
 $btn-box-shadow: inset 0 1px 0 rgba($white, 0.15), 0 1px 1px rgba($black, 0.075) !default;
 $btn-disabled-opacity: 0.65 !default;
 
-// 链接按钮
 $btn-link-color: $link-color !default;
 $btn-link-hover-color: $link-hover-color !default;
 $btn-link-disabled-color: $gray-600 !default;
 
-// 按钮 radius
 $btn-border-radius: $border-radius !default;
 $btn-border-radius-lg: $border-radius-lg !default;
 $btn-border-radius-sm: $border-radius-sm !default;
@@ -243,7 +239,6 @@ $menu-item-active-color: $primary !default;
 $menu-item-active-border-width: 2px !default;
 $menu-item-disabled-color: $gray-600 !default;
 
-//sub-menu
 //submenu
 $submenu-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.12),
   0 0 6px 0 rgba(0, 0, 0, 0.04);
@@ -331,3 +326,33 @@ $autoComplete-border-color: #dee2e6 !default;
 $autoComplete-z-index: 100 !default;
 $autoComplete-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.12),
   0 0 6px 0 rgba(0, 0, 0, 0.04) !default;
+
+//message
+$message-top: 0.3rem !default;
+$message-left: 50% !default;
+$message-transform: translateX(-50%) !default;
+$message-item-transition-type: all !default;
+$message-item-transition-time: 0.5s !default;
+$message-item-animation-name: amFadeIn !default;
+$message-item-animation-time: 0.5s !default;
+$message-item-animation-ease: forwards !default;
+$message-item-padding-left: 0.5rem !default;
+$message-item-font-size: 14px;
+$message-item-margin-top: 1rem !default;
+$message-item-transform-origin: top !default;
+$message-item-wrapper-bgc: #fff;
+$message-item-wrapper-box-shadow: 0 3px 6px -4px rgba(0, 0, 0, 0.12),
+  0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 9px 28px 8px rgba(0, 0, 0, 0.05);
+$message-item-wrapper-padding: 10px 16px;
+$message-item-wrapper-border-radius: 2px;
+@keyframes amFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -1,0 +1,32 @@
+/*
+ * @Author: Chengxu Bian 
+ * @Date: 2020-07-18 20:15:50 
+ * @Last Modified by:   Chengxu Bian 
+ * @Last Modified time: 2020-07-18 20:15:50 
+ */
+.fancy-message {
+  position: fixed;
+  top: $message-top;
+  left: $message-left;
+  transform: $message-transform;
+  font-size: $font-size-base;
+  .message-item-warrper {
+    width: max-content;
+    height: max-content;
+    background-color: $message-item-wrapper-bgc;
+    margin-top: $message-item-margin-top;
+    border-radius: $message-item-wrapper-border-radius;
+    padding: $message-item-wrapper-padding;
+    box-shadow: $message-item-wrapper-box-shadow;
+  }
+  .message-item {
+    font-size: $message-item-font-size;
+    transform-origin: $message-item-transform-origin;
+    transition: $message-item-transition-type $message-item-transition-time;
+    animation: $message-item-animation-name $message-item-animation-time
+      $message-item-animation-ease;
+    line-height: $line-height-base;
+    padding-left: $message-item-padding-left;
+  }
+}
+

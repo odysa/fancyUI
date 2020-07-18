@@ -2,11 +2,10 @@
  * @Author: Chengxu Bian
  * @Date: 2020-07-14 12:04:23
  * @Last Modified by: Chengxu Bian
- * @Last Modified time: 2020-07-17 19:42:27
+ * @Last Modified time: 2020-07-18 20:31:32
  */
 import React from "react";
 import { storiesOf } from "@storybook/react";
-import { action } from "@storybook/addon-actions";
 import AutoComplete from "./autoComplete";
 
 const simpleComplete = () => {

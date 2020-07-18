@@ -2,7 +2,7 @@
  * @Author: Chengxu Bian
  * @Date: 2020-07-10 16:51:01
  * @Last Modified by: Chengxu Bian
- * @Last Modified time: 2020-07-17 18:10:18
+ * @Last Modified time: 2020-07-18 20:32:33
  */
 import React, { useContext, FC } from "react";
 import classNames from "classnames";
@@ -22,9 +22,7 @@ export const TabItem: FC<TabItemProps> = (props) => {
     "is-activated": context.index === index,
     "is-disabled": disabled,
   });
-  const panelClasses = classNames('tab-panel',{
-    "is-opened":context.index === index,
-  })
+
   const handleClick = () => {
     if (context.onSelect && typeof index === 'number') {context.onSelect(index,children)};
   };
