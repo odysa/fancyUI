@@ -1,6 +1,6 @@
 # Fancy UI
 
-![GitHub last commit](https://img.shields.io/github/last-commit/cbian03/fancyUI)![GitHub](https://img.shields.io/github/license/cbian03/fancyUI)![](https://img.shields.io/badge/TypeScript-blue)[![Storybook](https://cdn.jsdelivr.net/gh/storybookjs/brand@master/badge/badge-storybook.svg)](link to site)
+![GitHub last commit](https://img.shields.io/github/last-commit/cbian03/fancyUI)![GitHub](https://img.shields.io/github/license/cbian03/fancyUI)![](https://img.shields.io/badge/TypeScript-blue)![Storybook](https://cdn.jsdelivr.net/gh/storybookjs/brand@master/badge/badge-storybook.svg)
 
 This is a personal project of UI library for my study and practice.
 
