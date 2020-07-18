@@ -1,3 +1,43 @@
 # Fancy UI
 
-Still working
+![GitHub last commit](https://img.shields.io/github/last-commit/cbian03/fancyUI)![GitHub](https://img.shields.io/github/license/cbian03/fancyUI)![](https://img.shields.io/badge/TypeScript-blue)[![Storybook](https://cdn.jsdelivr.net/gh/storybookjs/brand@master/badge/badge-storybook.svg)](link to site)
+
+This is a personal project of UI library for my study and practice.
+
+It follow styles of [Ant Design](https://github.com/ant-design/ant-design). 
+
+## Install
+
+```bash
+yarn install
+or
+npm install
+```
+
+
+
+## Usage
+
+This project runs on [Storybook](https://github.com/storybookjs/storybook). Thanks for this awesome project.
+
+```bash
+yarn storybook
+or
+npm run storybook
+```
+
+
+
+## Components
+
+* Alert
+* AutoComplete
+* Button
+* Icon
+* Input
+* Menu
+* Message
+* Progress
+* Search
+* Tab
+* Upload
