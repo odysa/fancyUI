@@ -10,14 +10,20 @@ import Icon from "../Icon/icon";
 export type MessageType = "success" | "error" | "info" | "warning";
 
 export interface MessageProps {
+  /** key o*/
   key: string;
+  /** type of message like info, error, warning,etc*/
   type: MessageType;
+  /** message */
   message: string;
+  /** message duration*/
   duration?: number;
+  /**callback funtion when closing*/
   onClose?: (key: string) => void;
 }
 
 export interface StateProps {
+  /** a group of messages*/
   messages: MessageProps[];
 }
 
@@ -46,7 +52,7 @@ export class Message extends Component {
       }, message.duration);
     }
   }
-
+  //remove messages from list
   removeMessage(key: string) {
     const { messages } = this.state;
     const res = messages.filter((messages) => {
@@ -60,7 +66,7 @@ export class Message extends Component {
       messages: res,
     });
   }
-  //generate Icon
+  //generate Icon for different types
   createIcon(type: MessageType) {
     switch (type) {
       case "warning":
