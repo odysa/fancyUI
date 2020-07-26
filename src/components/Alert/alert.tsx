@@ -36,11 +36,12 @@ export const Alert: FC<AlertProps> = (props) => {
     setVisibility(!visible);
   };
   return (
-    <div className={classes} {...restProps}>
+    <div className={classes} data-testid="alert-test" {...restProps}>
       <p className="alert-message">{messgae}</p>
       <span className="alert-desc">{description}</span>
       {closable && (
         <Icon
+          data-testid = "icon-test"
           theme="secondary"
           icon="times"
           className="alert-close"

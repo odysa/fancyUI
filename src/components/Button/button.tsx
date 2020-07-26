@@ -51,7 +51,7 @@ export const Button: FC<ButtonProps> = (props) => {
   const classes = classNames("fancy-btn", className, {
     [`fancy-btn-${btnType}`]: btnType,
     [`fancy-btn-${size}`]: size,
-    disabled: btnType === 'link' && disabled,
+    disabled: disabled,
   });
 
   if (btnType === 'link' && href) {
@@ -71,7 +71,7 @@ export const Button: FC<ButtonProps> = (props) => {
 
 Button.defaultProps = {
   disabled: false,
-  btnType: "primary",
+  btnType: "default",
 };
 
 export default Button;

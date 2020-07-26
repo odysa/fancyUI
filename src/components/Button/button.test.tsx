@@ -7,20 +7,33 @@
 
 import React from "react";
 
-import { render } from "@testing-library/react";
+import { render, cleanup } from "@testing-library/react";
 
 import Button from "./button";
 
-test("", () => {
-  const wrapper = render(<Button>Nice</Button>);
-  const element = wrapper.getByText("Nice");
-  expect(element).toBeInTheDocument();
-  expect(element.tagName).toEqual("BUTTON");
-  expect(element).toHaveClass("fancy-btn fancy-btn-default");
-});
-
 describe("test button component", () => {
-  it("should render the correct default button", () => {});
-  it("should render the correct component based on different props", () => {});
-  it("should render disabled button when disabled", () => {});
+  beforeEach(()=>{
+    cleanup();
+  })
+  it("should render the correct default button", () => {
+    const button = render(<Button>Default</Button>);
+    const element = button.getByText("Default");
+    expect(element).toBeInTheDocument();
+    expect(element.tagName).toEqual("BUTTON");
+    expect(element).toHaveClass("fancy-btn fancy-btn-default");
+  });
+  it("should render the correct component based on different props", () => {
+    const button = render(<Button btnType="danger" size="lg">Danger</Button>);
+    const element  = button.getByText("Danger");
+    expect(element).toBeInTheDocument();
+    expect(element.tagName).toEqual("BUTTON");
+    expect(element).toHaveClass('fancy-btn fancy-btn-danger fancy-btn-lg');
+  });
+  it("should render disabled button when disabled", () => {
+    const button = render(<Button btnType="danger" size="lg" disabled>Danger</Button>);
+    const element  = button.getByText("Danger");
+    expect(element).toBeInTheDocument();
+    expect(element.tagName).toEqual("BUTTON");
+    expect(element).toHaveClass('fancy-btn fancy-btn-danger fancy-btn-lg disabled');
+  });
 });
