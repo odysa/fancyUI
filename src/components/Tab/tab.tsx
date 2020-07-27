@@ -80,14 +80,14 @@ export const Tab: FC<TabProps> = (props) => {
     });
   };
   return (
-    <div className={containerClasses}>
+    <div className={containerClasses} data-testid="tab-test">
       <ul className={tabClasses}>
         <TabContext.Provider value={passedContext}>
           {renderChildren()}
         </TabContext.Provider>
       </ul>
       {/* content to display */}
-      <div className={contentClasses}>{currentContent}</div>
+      <div className={contentClasses} data-testid="tab-content-test">{currentContent}</div>
     </div>
   );
 };

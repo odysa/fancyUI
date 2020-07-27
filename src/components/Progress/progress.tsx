@@ -35,5 +35,8 @@ export const Progress: FC<ProgressProps> = (props) => {
   );
 };
 
+Progress.defaultProps={
+  theme:'primary',
+}
 
 export default Progress;
