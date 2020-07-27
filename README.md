@@ -6,6 +6,8 @@ This is a personal project of UI library for my study and practice.
 
 It follow styles of [Ant Design](https://github.com/ant-design/ant-design). 
 
+Check it out! 👉[Demo](https://fancy-ui.cbian03.vercel.app).
+
 ## Install
 
 ```bash
