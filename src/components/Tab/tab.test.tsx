@@ -44,7 +44,7 @@ describe("Tabs and TabItems", () => {
     expect(activeTab).toHaveClass("is-activated");
     expect(otherTab).toHaveClass(myClass);
     expect(otherTab).not.toHaveClass("is-activated");
-    expect(disabledTab).toHaveClass("is-activateddisabled");
+    expect(disabledTab).toHaveClass("tab-item tab-title is-disabled");
     expect(content).toHaveTextContent("tab1");
   });
 

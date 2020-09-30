@@ -24,10 +24,10 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
 
-    - name: get cache
+    - name: Get Cache
       uses: c-hive/gha-yarn-cache@v1
 
-    - name: Build package
+    - name: Install Dependency
       run: |
         yarn --frozen-lockfile --non-interactive
       env:
